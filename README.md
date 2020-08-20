@@ -29,12 +29,13 @@ This sample contains a simple Python application that you can quickly build for 
 - Run each cell in the notebook.
 - The last cell in the notebook will submit a request to your Streams instance to build the application for the edge.  It will take a few seconds to complete.  While it is running a progress bar entitled "Building edge image" will display its progress.
   - The build will create a Docker image that can run on an edge system.
+  
   - After a few minutes you should see a message indicating that the build was successful.
   - An additional message will indicate the full path to the Docker image for the application.
   - The image name that this sample produces is:  "edge-sensorrollingaverage:streamsx"
 
 #### 4. Package and deploy the application to one or more edge systems
-- Two different deployment methods for packaging and deploying applications are supported:
+- You can deploy this application either by using Cloud Pack for Data Edge Analytics, or by using IBM Edge Application Manager.  The following references will describe the steps needed for each of the methods. 
   - See [Packaging your edge application](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-register-app.html) for details on the packaging step.
   - Next, see [Deploying your edge application](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-deploy.html) for details about deploying your application to one or more edge systems.
 
