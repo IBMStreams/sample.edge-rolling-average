@@ -27,7 +27,7 @@ This sample contains a simple Python application that you can quickly build for 
 
 #### 3. Run the notebook
 - Run each cell in the notebook.
-- The last cell in the notebook will submit a request to your Streams instance to build the application for the edge.
+- The last cell in the notebook will submit a request to your Streams instance to build the application for the edge.  It will take a few seconds to complete.  While it is running a progress bar entitled "Building edge image" will display its progress.
   - The build will create a Docker image that can run on an edge system.
   - After a few minutes you should see a message indicating that the build was successful.
   - An additional message will indicate the full path to the Docker image for the application.
