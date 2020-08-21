@@ -1,4 +1,3 @@
-# (UNDER CONSTRUCTION - This sample and its instructions are under development)
 # sample.edge-rolling-average
 
 This sample contains a simple Python application that you can quickly build for the edge, deploy to the edge, and observe the application as it runs on the edge.  The application computes a rolling average of a value for a group of sensors.  For the purposes of this sample, all the sensor data is generated.
@@ -27,9 +26,9 @@ This sample contains a simple Python application that you can quickly build for 
 
 #### 3. Run the notebook
 - Run each cell in the notebook.
-- The last cell in the notebook will submit a request to your Streams instance to build the application for the edge.  It will take a few seconds to complete.  While it is running a progress bar entitled "Building edge image" will display its progress.
+- The last cell in the notebook will submit a request to your Streams instance to build the application for the edge.  It will take a little while to complete.  While it is running, a progress bar entitled "Building edge image" will display its progress.
+
   - The build will create a Docker image that can run on an edge system.
-  
   - After a few minutes you should see a message indicating that the build was successful.
   - An additional message will indicate the full path to the Docker image for the application.
   - The image name that this sample produces is:  "edge-sensorrollingaverage:streamsx"
