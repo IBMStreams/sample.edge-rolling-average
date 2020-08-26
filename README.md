@@ -14,6 +14,7 @@ This sample contains a simple Python application that you can quickly build for 
 
 #### 1. Copy this notebook into an IBM Cloud Pak for Data project
 - Copy the GitHub URL of the Edge-RollingAverage.ipynb file.
+  - https://github.com/IBMStreams/sample.edge-rolling-average/blob/main/Edge-RollingAverage.ipynb
 - Create a new, empty project or open an existing project in IBM Cloud Pak for Data.
 - From your project, click "Add to project" and select "Add notebook".
 - Select the "From URL" tab, enter a name for the notebook (e.g. Edge-RollingAverage) and paste the URL in the "Notebook URL" field.
