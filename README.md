@@ -54,7 +54,7 @@ This sample contains a simple Python application that you can quickly build for 
 
 ### All of the instructions to this point are not affected by the choice of deployment methods.  However, they will now diverge.  To keep the instructions simpler, there be a separate set of instructions for each deployment method.
 
-### CP4D Deployment method
+### Deploying an Edge application using CP4D 
 
 #### CP4D.4. Package and deploy the application to one or more edge systems using CP4D 
     
@@ -110,13 +110,7 @@ From CP4D Console, perform these steps.  For more information, see [Deleting an 
     1. Select 'Delete'
     1. Confirm the Delete          
 
-### EAM Deployment method
-
-#### EAM.4. Package and deploy the application to one or more edge systems using EAM
-
-#### EAM.5.  Observe the application running on the edge using EAM
-
-
+### Deploying an Edge application using EAM 
         
 #### EAM.5. Select Edge Node(s) for development and deployment (via CP4D Console)
 To see list of Edge nodes that have been tethered to this CPD instance, do these steps:
@@ -125,7 +119,7 @@ To see list of Edge nodes that have been tethered to this CPD instance, do these
     This will display a list of the available nodes.  Select one of the _ieam-analytics-micro-edge-system_ type nodes for the development system.  Also, select one of these for the deployment system.  It can be the same system.
 
 #### EAM.6. Develop / Publish application package 
-Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for development and perform the following steps.  The submission time variables from the application will be included in the resulting application package. The values for the variables are not specifed as part of the application package.  For more information, see [Packaging using Edge Application Manager](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-register-by-eam.html) topic.
+Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for development and perform the following steps.  For more information, see [Packaging using Edge Application Manager](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-register-by-eam.html) topic.
 
 - Install the OpenShift® command-line interface.
 For more information, see [Get Started with the CLI 3.11](https://docs.openshift.com/container-platform/3.11/cli_reference/get_started_cli.html) or [Getting started with the CLI 4.3](https://docs.openshift.com/container-platform/4.3/cli_reference/openshift_cli/getting-started-cli.html).
@@ -156,59 +150,18 @@ For more information, see [Get Started with the CLI 3.11](https://docs.openshift
 ```
 - Create EAM service project
 ```
-    mkdir app_control_sample; cd app_control_sample
-    hzn dev service new -s app-control-service -V 1.0 --noImageGen -i $OCP_DOCKER_HOST/$IMAGE_PREFIX/trades-withtrace:1.0
+    mkdir rolling_average_sample; cd rolling_average_sample
+    hzn dev service new -s rolling-average-service -V 1.0 --noImageGen -i $OCP_DOCKER_HOST/$IMAGE_PREFIX/edge-sensorrollingaverage:streamsx
 ```
 - Add submission time variables and runtime-option:trace
     1. edit horizon/service.definition.json with editor of your choosing.
     1. insert the submission time variables into the "userInput" array such that it looks like the following.  See more information on [determining what variables are supported.](#stv)
-    
-```
-    {
-        "org": "$HZN_ORG_ID",
-        "label": "$SERVICE_NAME for $ARCH",
-        "description": "",
-        "public": true,
-        "documentation": "",
-        "url": "$SERVICE_NAME",
-        "version": "$SERVICE_VERSION",
-        "arch": "$ARCH",
-        "sharable": "multiple",
-        "requiredServices": [],
-        "userInput": [
-		      {
-			     "name": "mySubmissionTimeVariable_string",
-			     "type": "string",
-			     "defaultValue": "defaultValue"
-		      },
-		      {
-			     "name": "mySubmissionTimeVariable_listOfStrings",
-			     "type": "list of strings",
-			     "defaultValue": "defaultFirstListElement,defaultSecondListElement"
-		      },
-              {
-                    "name": "STREAMS_OPT_TRACE_LEVEL",
-                    "label" : "Tracing level: 0=OFF, 1=ERROR, 2=WARNING, 3=INFO, 4=DEBUG, 5=TRACE",
-                    "type": "string",
-                    "defaultValue": "1"
-                }
-        ],
-        "deployment": {
-            "services": {
-                "tradesappcloud-withlogtrace": {
-                "image": "$OCP_DOCKER_HOST/$IMAGE_PREFIX/trades-withtrace:1.0",
-                "privileged": false,
-                "network": ""
-            }
-        }
-    }
-}
-```
+   
 - Test the service by starting the service, reviewing the container logs, and stopping the service.
 
 ```
     hzn dev service start -S
-    sudo cat /var/log/syslog | grep trades-withtrace[[]
+    sudo cat /var/log/syslog | grep edge-sensorrollingaverage[[]
     hzn dev service stop
 ```
 
@@ -237,29 +190,12 @@ For more information, see [Get Started with the CLI 3.11](https://docs.openshift
             
 
 #### EAM.7. Deploy application package to an Edge node 
-Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deployment and perform the following steps.    For more information, see [Deploying using Edge Application Manager](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-deploy-eam.html) topic.  The values for the submission time variables from the application will be specified during deployment.
-- Edit horizon/userinput.json with editor of your choosing and add the following json to it.
-        
-```
-    {
-        "services": [
-            {
-                "org": "$HZN_ORG_ID",
-                "url": "app-control-service",
-                "variables": {
-                    "mySubmissionTimeVariable_string": "MyFavoriteFootballTeams",
-                    "mySubmissionTimeVariable_listOfStrings": ["Vikings,Packers,Lions,Bears"],
-                    "STREAMS_OPT_TRACE_LEVEL" : "3"
-                }
-            }
-        ]
-    }       
-```
+Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deployment and perform the following steps.    For more information, see [Deploying using Edge Application Manager](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-deploy-eam.html) topic. 
 
 - Deploy pattern/service with user inputs.
 
 ```
-    hzn register -p pattern-app-control-service-amd64    -f horizon/userinput.json
+    hzn register -p pattern-app-control-service-amd64
     
 ```
 - Verify that application is deployed, by checking for an agreement being created.  This make take a few minutes to show up.
@@ -274,8 +210,7 @@ Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deplo
     hzn service log -f app-control-service
     
 - View log statements
-    - This log contains a variety of statements.  The standard println output will be in this log, as well as the output from the trace statements.  Search for "USER-NAME" for example of println output. The trace statements will contain "#splapptrc".  
-    - Here is a snippet of the log. Notice that the input variables that were supplied made it to the application and were output to this log file. (e.g. MyFavoriteFootballTeams). Also, notice that the DEBUG-LEVEL message was not in the log.  This means the STREAMS_OPT_TRACE_LEVEL runtime-option that set the level to INFO made it to the application as well. 
+    - This log contains a variety of statements.  The standard println output will be in this log, as well as the output from the trace statements.
 
 ```
 2020-08-19T10:07:10.064038778-07:00 stdout F 19 Aug 2020 17:07:10.063+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:82]  - mySubmissionTimeVariable_string =MyFavoriteFootballTeams
