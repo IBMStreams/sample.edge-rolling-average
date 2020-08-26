@@ -81,8 +81,8 @@ From CP4D Console perform these steps. For more information, see [Deploying usin
 
 #### CP4D.6.  Observe the application running on the edge
 From CP4D Console, perform these steps.  See [Monitoring edge systems and applications with Edge Analytics](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-monitor.html) for detailed instructions on how to view status, logs, metrics, etc. for edge applications.
-1. Continuing from the 'App Control Sample' panel
-    - CPD console > Navigation Menu > Analyze > Edge Analytics > Analytics apps > app control sample
+1. Continuing from the 'Rolling Average Sample' panel
+    - CPD console > Navigation Menu > Analyze > Edge Analytics > Analytics apps > rolling average sample
 1. Go to row for the application instance for the edge node that you would like to see log for, and select three dots at clear right part of row to see the list of options.
     1. Select 'Download logs'.
 1. Unzip downloaded log package.
@@ -104,7 +104,7 @@ From CP4D Console, perform these steps.  See [Monitoring edge systems and applic
     
 #### CP4D.7. Un-deploy application
 From CP4D Console, perform these steps.  For more information, see [Deleting an application deployment](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-unregister.html) topic.
-1. Continuing from the 'App Control Sample' panel
+1. Continuing from the 'Rolling Average Sample' panel
     - CPD console > Navigation Menu > Analyze > Edge Analytics > Analytics apps > Rolling Average Sample
 1. Go to row for the application instance for the edge node that you would like to un-deploy the app from, and select three dots at clear right part of row to see the list of options.
     1. Select 'Delete'
@@ -167,7 +167,7 @@ For more information, see [Get Started with the CLI 3.11](https://docs.openshift
     hzn exchange service publish -r "$OCP_DOCKER_HOST:$OCP_USER:$OCP_TOKEN" -f horizon/service.definition.json
 ```
     
-    1. verify app-control-service was published and exists in the service list.
+    1. verify rolling-average-service was published and exists in the service list.
     
         hzn exchange service list
         
@@ -177,7 +177,7 @@ For more information, see [Get Started with the CLI 3.11](https://docs.openshift
     hzn exchange pattern publish -f horizon/pattern.json 
 ```
     
-    1. verify pattern-app-control-service pattern was published and exists in this pattern list.
+    1. verify pattern-rolling-average-service pattern was published and exists in this pattern list.
     
     
 ```
