@@ -14,8 +14,9 @@ This sample contains a simple Python application that you can quickly build for 
 
 #### 1. Copy this notebook into an IBM Cloud Pak for Data project
 - Copy the GitHub URL of the Edge-RollingAverage.ipynb file.
+  - https://github.com/IBMStreams/sample.edge-rolling-average/blob/main/Edge-RollingAverage.ipynb
 - Create a new, empty project or open an existing project in IBM Cloud Pak for Data.
-- From your project, click "Add to project" and select "Add notebook".
+- From your project, click "Add to project" and select "Notebook".
 - Select the "From URL" tab, enter a name for the notebook (e.g. Edge-RollingAverage) and paste the URL in the "Notebook URL" field.
 - Click "Create notebook".
 
@@ -31,7 +32,7 @@ This sample contains a simple Python application that you can quickly build for 
   - The build will create a Docker image that can run on an edge system.
   - After a few minutes you should see a message indicating that the build was successful.
   - An additional message will indicate the full path to the Docker image for the application.
-  - The image name that this sample produces is:  "edge-sensorrollingaverage:streamsx"
+  - The image name that this sample produces is:  "edge-sensorrollingaverage:streamsx".
 
 #### 4. Package and deploy the application to one or more edge systems
 - You can deploy this application either by using Cloud Pack for Data Edge Analytics, or by using IBM Edge Application Manager.  The following references will describe the steps needed for each of the methods. 
@@ -42,3 +43,11 @@ This sample contains a simple Python application that you can quickly build for 
 - This sample application writes output to its application log on the edge.  The rolling averages for each sensor are continuously written to the log.
   - If you deployed using Cloud Pack for Data Edge Analytics, see [Monitoring edge systems and applications with Edge Analytics](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-monitor.html) for detailed instructions on how to view status, logs, metrics, etc. for edge applications.
   - If you deployed using IBM Edge Application Manager, use its facilities to observe your running edge applications.  Application logs can also be accessed directly on the edge systems.
+  
+Here is an example of the output.
+```
+2020-08-26T12:57:32.669001408-07:00 stdout F {'average': 1676.468925031888, 'sensor_id': 'sensor_1', 'period_end': 'Wed Aug 26 19:57:32 2020'}
+2020-08-26T12:57:32.669061438-07:00 stdout F {'average': 1535.4473696593964, 'sensor_id': 'sensor_10', 'period_end': 'Wed Aug 26 19:57:32 2020'}
+2020-08-26T12:57:32.669075576-07:00 stdout F {'average': 1775.567856314266, 'sensor_id': 'sensor_2', 'period_end': 'Wed Aug 26 19:57:32 2020'}
+2020-08-26T12:57:32.669097607-07:00 stdout F {'average': 1309.5090881266447, 'sensor_id': 'sensor_3', 'period_end': 'Wed Aug 26 19:57:32 2020'}
+```
