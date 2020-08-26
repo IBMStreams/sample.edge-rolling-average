@@ -16,7 +16,7 @@ This sample contains a simple Python application that you can quickly build for 
 4. [Install Watson Studio service on CP4D](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-ws.html)
 5. [Provision a Streams instance](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/streams/provision.html#provision)
 
-6. If IEAM will be used to managed edge application lifecycles
+6. If IBM Edge Application Manager will be used to managed edge application lifecycles
     - [Install IBM Edge Application Manager 4.1](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/hub/hub.html)
     
         - Gather the following information for use in this sample
@@ -52,7 +52,7 @@ This sample contains a simple Python application that you can quickly build for 
   - An additional message will indicate the full path to the Docker image for the application.
   - The image name that this sample produces is:  "edge-sensorrollingaverage:streamsx".
 
-### All of the instructions to this point are not affected by the choice of deployment methods.  However, they will now diverge.  To keep the instructions simpler, there be a separate set of instructions for each deployment method.
+### All of the instructions to this point are independent of the choice of deployment methods.  However, the instructions will now diverge.  To keep the instructions simpler, there is a separate set of instructions for each deployment method.
 
 ### Deploying an Edge application using CP4D 
 
@@ -63,30 +63,30 @@ This sample contains a simple Python application that you can quickly build for 
     1. Click 'Add Application packages' and fill in these values
         | Field | Value |
         | ----- | ----- |
-        | Name | App Control Sample | 
+        | Name | Rolling Average Sample | 
         | Version | 1.0 |
-        | Image reference | trades-withtrace:1.0 |
+        | Image reference | edge-sensorrollingaverage:streamsx |
     1. Save
     
      
 #### CP4D.5. Deploy application package to an Edge node 
-From CP4D Console perform these steps. For more information, see [Deploying using Cloud Pak for Data](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-deploy-cpd.html) topic.  The values for the submission time variables can not be changed at this time.
+From CP4D Console perform these steps. For more information, see [Deploying using Cloud Pak for Data](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-deploy-cpd.html) topic.  
 1. Continuing from the 'Analytics apps' panel
     - CPD Console > Navigation Menu > Analyze > Edge Analytics > Analytics apps
-1. Go to end of the row with "App Control Sample" and click on three dots to open list of options, and select 'Deploy to edge'
+1. Go to end of the row with "Rolling Average Sample" and click on three dots to open list of options, and select 'Deploy to edge'
     1. When the list of remote systems is displayed, check the box next to the remote system you want to deploy to.
     1. Select 'Deploy' option.
-1. To verify that the app was deployed successfully, select the "App Control Sample"
+1. To verify that the app was deployed successfully, select the "Rolling Average Sample"
     1. Verify that there is an application instance for the deployment to your chosen system.
 
-#### CP4D.6.  Observe the application running on the edge using CP4D
+#### CP4D.6.  Observe the application running on the edge
 From CP4D Console, perform these steps.  See [Monitoring edge systems and applications with Edge Analytics](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-monitor.html) for detailed instructions on how to view status, logs, metrics, etc. for edge applications.
 1. Continuing from the 'App Control Sample' panel
     - CPD console > Navigation Menu > Analyze > Edge Analytics > Analytics apps > app control sample
 1. Go to row for the application instance for the edge node that you would like to see log for, and select three dots at clear right part of row to see the list of options.
     1. Select 'Download logs'.
 1. Unzip downloaded log package.
-1. Open up app-control-sample-xxxx.log file
+1. Open up rolling-average-sample-xxxx.log file
     - This file contains a variety of statements.  The standard println output will be in this log, as well as the output from the trace statements.
 
 ```
@@ -105,7 +105,7 @@ From CP4D Console, perform these steps.  See [Monitoring edge systems and applic
 #### CP4D.7. Un-deploy application
 From CP4D Console, perform these steps.  For more information, see [Deleting an application deployment](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-unregister.html) topic.
 1. Continuing from the 'App Control Sample' panel
-    - CPD console > Navigation Menu > Analyze > Edge Analytics > Analytics apps > App Control Sample
+    - CPD console > Navigation Menu > Analyze > Edge Analytics > Analytics apps > Rolling Average Sample
 1. Go to row for the application instance for the edge node that you would like to un-deploy the app from, and select three dots at clear right part of row to see the list of options.
     1. Select 'Delete'
     1. Confirm the Delete          
@@ -142,7 +142,7 @@ For more information, see [Get Started with the CLI 3.11](https://docs.openshift
 ```
 - Pull the edge application image to the development node
 ```
-    docker pull $OCP_DOCKER_HOST/$IMAGE_PREFIX/trades-withtrace:1.0
+    docker pull $OCP_DOCKER_HOST/$IMAGE_PREFIX/edge-sensorrollingaverage:streamsx
 ```
 - Create a cryptographic signing key pair.
 ```
@@ -152,11 +152,7 @@ For more information, see [Get Started with the CLI 3.11](https://docs.openshift
 ```
     mkdir rolling_average_sample; cd rolling_average_sample
     hzn dev service new -s rolling-average-service -V 1.0 --noImageGen -i $OCP_DOCKER_HOST/$IMAGE_PREFIX/edge-sensorrollingaverage:streamsx
-```
-- Add submission time variables and runtime-option:trace
-    1. edit horizon/service.definition.json with editor of your choosing.
-    1. insert the submission time variables into the "userInput" array such that it looks like the following.  See more information on [determining what variables are supported.](#stv)
-   
+```  
 - Test the service by starting the service, reviewing the container logs, and stopping the service.
 
 ```
@@ -195,7 +191,7 @@ Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deplo
 - Deploy pattern/service with user inputs.
 
 ```
-    hzn register -p pattern-app-control-service-amd64
+    hzn register -p pattern-rolling-average-service-amd64
     
 ```
 - Verify that application is deployed, by checking for an agreement being created.  This make take a few minutes to show up.
@@ -207,7 +203,7 @@ Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deplo
 
 #### EAM.8. View the runtime logs (ssh to CP4D Edge node chosen for deployment)
 
-    hzn service log -f app-control-service
+    hzn service log -f rolling-average-service
     
 - View log statements
     - This log contains a variety of statements.  The standard println output will be in this log, as well as the output from the trace statements.
