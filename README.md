@@ -81,7 +81,7 @@ From CP4D Console perform these steps. For more information, see [Deploying usin
     1. When the list of remote systems is displayed, check the box next to the remote system you want to deploy to.
     1. Select 'Deploy' option.
 1. To verify that the app was deployed successfully, select the "Rolling Average Sample"
-    1. Verify that there is an application instance for the deployment to your chosen system.
+    1. Verify that there is an application instance for the deployment to your chosen system.  If the 'Last known status' shows a symbol with fly-over text of 'Provision in progress', that status may need to be refreshed.  THis can be done by selecting that row, continue over to far right of that row, and select "Open list of options" (represented by three vertical dots).  Selecting 'Refresh status' should update the 'Last known status' to a symbol with flyover text of "Running".
 
 #### CP4D.6.  Observe the application running on the edge
 From CP4D Console, perform these steps.  See [Monitoring edge systems and applications with Edge Analytics](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-monitor.html) for detailed instructions on how to view status, logs, metrics, etc. for edge applications.
@@ -206,16 +206,10 @@ Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deplo
 - View log statements
     - This log contains a variety of statements.  The standard println output will be in this log, as well as the output from the trace statements.
 
-```
-2020-08-19T10:07:10.064038778-07:00 stdout F 19 Aug 2020 17:07:10.063+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:82]  - mySubmissionTimeVariable_string =MyFavoriteFootballTeams
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.063+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:83]  - mySubmissionTimeVariable_listOfStrings var: 
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.064+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:85]  -    String element: Vikings
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.064+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:85]  -    String element: Packers
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.065+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:85]  -    String element: Lions
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.065+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:85]  -    String element: Bears
-
-2020-08-19T10:07:10.066033579-07:00 stdout F This sample is being is being tried out by: USER-NAME=  yourName
-
+```2020-08-27T13:15:23.047502063-07:00 stdout F {'average': 1729.796946015279, 'sensor_id': 'sensor_1', 'period_end': 'Thu Aug 27 20:15:23 2020'}
+2020-08-27T13:15:23.047715310-07:00 stdout F {'average': 1321.2858402449626, 'sensor_id': 'sensor_10', 'period_end': 'Thu Aug 27 20:15:23 2020'}
+2020-08-27T13:15:23.047765359-07:00 stdout F {'average': 411.0143925640869, 'sensor_id': 'sensor_3', 'period_end': 'Thu Aug 27 20:15:23 2020'}
+2020-08-27T13:15:23.047806104-07:00 stdout F {'average': 1788.7616988434274, 'sensor_id': 'sensor_4', 'period_end': 'Thu Aug 27 20:15:23 2020'}
 
 ```
 
