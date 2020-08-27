@@ -54,13 +54,13 @@ This sample contains a simple Python application that you can quickly build for 
 Application image built successfully.
     Image:    image-registry.openshift-image-registry.svc:5000/ivan34/edge-sensorrollingaverage:streamsx
 ```
-  - The image name that this sample produces is:  "edge-sensorrollingaverage:streamsx".
+  - The image name that this sample produces is:  "edge-sensorrollingaverage:streamsx".  If you are using EAM for deployment, take note of the imagePrefix, the name segment just prior to this name.  In this example, the imagePrefix is _ivan34_.  It will be needed in a later step.
 
 ### All of the instructions to this point are independent of the choice of deployment methods.  However, the instructions will now diverge.  To keep the instructions simpler, there is a separate set of instructions for each deployment method.
 
 ### Deploying an Edge application using CP4D 
 
-#### CP4D.4. Package and deploy the application to one or more edge systems using CP4D 
+#### CP4D.4. Package and deploy the application to one or more edge systems 
     
 - From CP4D Console, perform these steps. For more information, see [Packaging using Cloud Pak for Data](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-register-by-cpd.html) topic. 
     1. Select CPD Console > Navigation Menu > Analyze > Edge Analytics > Analytics apps
@@ -93,16 +93,10 @@ From CP4D Console, perform these steps.  See [Monitoring edge systems and applic
 1. Open up rolling-average-sample-xxxx.log file
     - This file contains a variety of statements.  The standard println output will be in this log, as well as the output from the trace statements.
 
-```
-2020-08-19T10:07:10.064038778-07:00 stdout F 19 Aug 2020 17:07:10.063+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:82]  - mySubmissionTimeVariable_string =MyFavoriteFootballTeams
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.063+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:83]  - mySubmissionTimeVariable_listOfStrings var: 
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.064+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:85]  -    String element: Vikings
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.064+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:85]  -    String element: Packers
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.065+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:85]  -    String element: Lions
-2020-08-19T10:07:10.066033579-07:00 stdout F 19 Aug 2020 17:07:10.065+0000 [56] INFO #splapptrc,J[0],P[0],PrintAvPrice M[TradesAppCloud_withLogTrace.spl:appTrc:85]  -    String element: Bears
-
-2020-08-19T10:07:10.066033579-07:00 stdout F This sample is being is being tried out by: USER-NAME=  yourName
-
+```2020-08-27T13:15:23.047502063-07:00 stdout F {'average': 1729.796946015279, 'sensor_id': 'sensor_1', 'period_end': 'Thu Aug 27 20:15:23 2020'}
+2020-08-27T13:15:23.047715310-07:00 stdout F {'average': 1321.2858402449626, 'sensor_id': 'sensor_10', 'period_end': 'Thu Aug 27 20:15:23 2020'}
+2020-08-27T13:15:23.047765359-07:00 stdout F {'average': 411.0143925640869, 'sensor_id': 'sensor_3', 'period_end': 'Thu Aug 27 20:15:23 2020'}
+2020-08-27T13:15:23.047806104-07:00 stdout F {'average': 1788.7616988434274, 'sensor_id': 'sensor_4', 'period_end': 'Thu Aug 27 20:15:23 2020'}
 
 ```
     
