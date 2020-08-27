@@ -45,11 +45,17 @@ This sample contains a simple Python application that you can quickly build for 
 
 #### 3. Run the notebook
 - Run each cell in the notebook.
-- The last cell in the notebook will submit a request to your Streams instance to build the application for the edge.  It will take a little while to complete.  While it is running, a progress bar entitled "Building edge image" will display its progress.
+- The last cell in the notebook will submit a request to your Streams instance to build the application for the edge.  It will take a little while to complete.  While it is running, a progress bar entitled "Building Bundle" will appear momentarily, followed by a "Building edge image" that will display its progress.
 
   - The build will create a Docker image that can run on an edge system.
   - After a few minutes you should see a message indicating that the build was successful.
   - An additional message will indicate the full path to the Docker image for the application.
+  
+```
+Application image built successfully.
+    Image:    image-registry.openshift-image-registry.svc:5000/ivan34/edge-sensorrollingaverage:streamsx
+```
+  
   - The image name that this sample produces is:  "edge-sensorrollingaverage:streamsx".
 
 ### All of the instructions to this point are independent of the choice of deployment methods.  However, the instructions will now diverge.  To keep the instructions simpler, there is a separate set of instructions for each deployment method.
