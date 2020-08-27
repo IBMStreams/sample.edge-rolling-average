@@ -16,7 +16,7 @@ This sample contains a simple Python application that you can quickly build for 
 4. [Install Watson Studio service on CP4D](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-ws.html)
 5. [Provision a Streams instance](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/streams/provision.html#provision)
 
-6. If IBM Edge Application Manager will be used to managed edge application lifecycles
+6. If IBM Edge Application Manager (EAM) will be used to managed edge application lifecycles
     - [Install IBM Edge Application Manager 4.1](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/hub/hub.html)
     
         - Gather the following information for use in this sample
@@ -114,7 +114,7 @@ From CP4D Console, perform these steps.  For more information, see [Deleting an 
 To see list of Edge nodes that have been tethered to this CPD instance, do these steps:
 1. login in to CPD Console
 1. Select Navigation Menu > Analyze > Edge Analytics > Remote systems
-    This will display a list of the available nodes.  Select one of the _ieam-analytics-micro-edge-system_ type nodes for the development system.  Also, select one of these for the deployment system.  It can be the same system.
+    This will display a list of the available nodes.  Select one of the _ieam-analytics-micro-edge-system_ type nodes for the development system.  Also, select one of these for the deployment system.  It can be the same system.  Make note of the ip addresses for these nodes.  The ip addresses will be used to ssh into the systems.
 
 #### EAM.5. Develop / Publish application package 
 Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for development and perform the following steps.  For more information, see [Packaging using Edge Application Manager](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-register-by-eam.html) topic.
@@ -126,11 +126,11 @@ For more information, see [Get Started with the CLI 3.11](https://docs.openshift
 
 ```
     eval export $(cat agent-install.cfg)
-    export HZN_EXCHANGE_USER_AUTH= _my_eam_api_key_
+    export HZN_EXCHANGE_USER_AUTH= _my_eam_api_key_                     // from Before you begin: EAM install section
     export OCP_USER="cpd-admin-sa"
-    export OCP_DOCKER_HOST=_default-route-to-openshift-image-registry_
-    export OCP_TOKEN=_cpd-admin-sa_openshift-token_
-    export IMAGE_PREFIX=_imagePrefix_   // from build step
+    export OCP_DOCKER_HOST=_default-route-to-openshift-image-registry_  // from Before you begin: EAM install section
+    export OCP_TOKEN=_cpd-admin-sa_openshift-token_                     // from Before you begin: EAM install section
+    export IMAGE_PREFIX=_imagePrefix_                                   // from Run the notebook section
 ```
     
 - Login to OpenShift and Docker
