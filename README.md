@@ -81,7 +81,7 @@ From CP4D Console perform these steps. For more information, see [Deploying usin
     1. When the list of remote systems is displayed, check the box next to the remote system you want to deploy to.
     1. Select 'Deploy' option.
 1. To verify that the app was deployed successfully, select the "Rolling Average Sample"
-    1. Verify that there is an application instance for the deployment to your chosen system.  If the 'Last known status' shows a symbol with fly-over text of 'Provision in progress', that status may need to be refreshed.  THis can be done by selecting that row, continue over to far right of that row, and select "Open list of options" (represented by three vertical dots).  Selecting 'Refresh status' should update the 'Last known status' to a symbol with flyover text of "Running".
+    1. Verify that there is an application instance for the deployment to your chosen system.  If the 'Last known status' shows a symbol with fly-over text of 'Provision in progress', that status may need to be refreshed.  This can be done by selecting that row, continue over to far right of that row, and select "Open list of options" (represented by three vertical dots).  Selecting 'Refresh status' should update the 'Last known status' to a symbol with flyover text of "Running".
 
 #### CP4D.6.  Observe the application running on the edge
 From CP4D Console, perform these steps.  See [Monitoring edge systems and applications with Edge Analytics](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-monitor.html) for detailed instructions on how to view status, logs, metrics, etc. for edge applications.
@@ -110,13 +110,13 @@ From CP4D Console, perform these steps.  For more information, see [Deleting an 
 
 ### Deploying an Edge application using EAM 
         
-#### EAM.5. Select Edge Node(s) for development and deployment (via CP4D Console)
+#### EAM.4. Select Edge Node(s) for development and deployment (via CP4D Console)
 To see list of Edge nodes that have been tethered to this CPD instance, do these steps:
 1. login in to CPD Console
 1. Select Navigation Menu > Analyze > Edge Analytics > Remote systems
     This will display a list of the available nodes.  Select one of the _ieam-analytics-micro-edge-system_ type nodes for the development system.  Also, select one of these for the deployment system.  It can be the same system.
 
-#### EAM.6. Develop / Publish application package 
+#### EAM.5. Develop / Publish application package 
 Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for development and perform the following steps.  For more information, see [Packaging using Edge Application Manager](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-register-by-eam.html) topic.
 
 - Install the OpenShift® command-line interface.
@@ -183,7 +183,7 @@ For more information, see [Get Started with the CLI 3.11](https://docs.openshift
 ```
             
 
-#### EAM.7. Deploy application package to an Edge node 
+#### EAM.6. Deploy application package to an Edge node 
 Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deployment and perform the following steps.    For more information, see [Deploying using Edge Application Manager](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-deploy-eam.html) topic. 
 
 - Deploy pattern/service with user inputs.
@@ -199,7 +199,7 @@ Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deplo
 ```
     
 
-#### EAM.8. View the runtime logs (ssh to CP4D Edge node chosen for deployment)
+#### EAM.7. View the runtime logs (ssh to CP4D Edge node chosen for deployment)
 
     hzn service log -f rolling-average-service
     
@@ -214,7 +214,7 @@ Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deplo
 ```
 
         
-#### EAM.9. Un-deploy application
+#### EAM.8. Un-deploy application
 For more information, see [Deleting an application deployment](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-unregister.html) topic.
 ```
         hzn unregister -f
