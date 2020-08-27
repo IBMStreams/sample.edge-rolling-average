@@ -212,34 +212,9 @@ Use the Secure Shell protocol (ssh) to log in to CP4D Edge node chosen for deplo
 2020-08-27T13:15:23.047806104-07:00 stdout F {'average': 1788.7616988434274, 'sensor_id': 'sensor_4', 'period_end': 'Thu Aug 27 20:15:23 2020'}
 
 ```
-
         
 #### EAM.8. Un-deploy application
 For more information, see [Deleting an application deployment](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-unregister.html) topic.
 ```
         hzn unregister -f
-```
-
-
-
-
-
-
-
-
-- You can deploy this application either by using Cloud Pack for Data Edge Analytics, or by using IBM Edge Application Manager.  The following references will describe the steps needed for each of the methods. 
-  - See [Packaging your edge application](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-register-app.html) for details on the packaging step.
-  - Next, see [Deploying your edge application](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-deploy.html) for details about deploying your application to one or more edge systems.
-
-#### 5.  Observe the application running on the edge
-- This sample application writes output to its application log on the edge.  The rolling averages for each sensor are continuously written to the log.
-  - If you deployed using Cloud Pack for Data Edge Analytics, see [Monitoring edge systems and applications with Edge Analytics](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/usage-monitor.html) for detailed instructions on how to view status, logs, metrics, etc. for edge applications.
-  - If you deployed using IBM Edge Application Manager, use its facilities to observe your running edge applications.  Application logs can also be accessed directly on the edge systems.
-  
-Here is an example of the output.
-```
-2020-08-26T12:57:32.669001408-07:00 stdout F {'average': 1676.468925031888, 'sensor_id': 'sensor_1', 'period_end': 'Wed Aug 26 19:57:32 2020'}
-2020-08-26T12:57:32.669061438-07:00 stdout F {'average': 1535.4473696593964, 'sensor_id': 'sensor_10', 'period_end': 'Wed Aug 26 19:57:32 2020'}
-2020-08-26T12:57:32.669075576-07:00 stdout F {'average': 1775.567856314266, 'sensor_id': 'sensor_2', 'period_end': 'Wed Aug 26 19:57:32 2020'}
-2020-08-26T12:57:32.669097607-07:00 stdout F {'average': 1309.5090881266447, 'sensor_id': 'sensor_3', 'period_end': 'Wed Aug 26 19:57:32 2020'}
 ```
