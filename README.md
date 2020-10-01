@@ -16,7 +16,7 @@ This sample contains a simple Python application that you can quickly build for 
 4. [Install Watson Studio service on CP4D](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-ws.html)
 5. [Provision a Streams instance](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/streams/provision.html#provision)
 
-6. If IBM Edge Application Manager (EAM) will be used to managed edge application lifecycles
+6. (Optional) If IBM Edge Application Manager (EAM) will be used to managed edge application lifecycles
     - [Install IBM Edge Application Manager 4.1](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/hub/hub.html)
     
         - Gather the following information for use in this sample
