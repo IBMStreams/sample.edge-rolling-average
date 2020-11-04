@@ -4,15 +4,15 @@ This sample contains a simple Python application that you can quickly build for 
 
 ## Before you begin
 
-1. [Install IBM Cloud Pak for Data (CP4D) 3.0.1](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/install/install.html)
+1. [Install IBM Cloud Pak for Data (CP4D) 3.5.0](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/install/install.html)
     - Gather the following information for use in this scenario
         - **_web client URL_**: This is the URL used to access the IBM Cloud Pak for Data environment in your browser. It should be of the form: https://HOST:PORT (e.g., https://123.45.67.89:12345).
         - **_credentials_**
         : These are the credentials (username and password) used to log in to the IBM Cloud Pak for Data environment in your browser. 
         - **_version_**: You can find the version number in the About section after logging in to the IBM Cloud Pak for Data environment in your browser.
-2. [Install IBM Edge Analytics beta service on CP4D](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/install.html) and [setup edge systems](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/svc-edge/admin.html)
+2. [Install IBM Edge Analytics beta service on CP4D](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/svc-edge/install.html) and [setup edge systems](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/svc-edge/admin.html)
     - Gather the credentials (root password) for Edge nodes for use in this sample
-3. [Install IBM Streams 5.4.0 service on CP4D](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/streams/install-intro.html)
+3. [Install IBM Streams 5.5.0 service on CP4D](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/streams/install-intro.html)
 4. [Install Watson Studio service on CP4D](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-ws.html)
 5. [Provision a Streams instance](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/streams/provision.html#provision)
 
@@ -36,6 +36,7 @@ This sample contains a simple Python application that you can quickly build for 
 - Create a new, empty project or open an existing project in IBM Cloud Pak for Data.
 - From your project, click "Add to project" and select "Notebook".
 - Select the "From URL" tab, enter a name for the notebook (e.g. Edge-RollingAverage) and paste the URL in the "Notebook URL" field.
+- Ensure that ***_"Default Python 3.6"_*** has been selected for the runtime.
 - Click "Create notebook".
 
 #### 2. Edit the notebook to specify the name of your Streams instance
