@@ -10,9 +10,12 @@ This sample contains a simple Python application that you can quickly build for 
         - **_credentials_**
         : These are the credentials (username and password) used to log in to the IBM Cloud Pak for Data environment in your browser. 
         - **_version_**: You can find the version number in the About section after logging in to the IBM Cloud Pak for Data environment in your browser.
+        
 2. [Install IBM Edge Analytics beta service on CP4D](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/svc-edge/install.html) and [setup edge systems](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/svc-edge/admin.html)
     - Gather the credentials (root password) for Edge nodes for use in this sample
-3. Install IBM Streams service on CP4D.  For more information, see [CP4D:3.5](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/cpd/svc/streams/install-intro.html) or [CP4D:3.0](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/cpd/svc/streams/install-intro.html)
+ 
+ 
+3. Install IBM Streams service on CP4D.  For more information, see [CP4D:3.5](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/svc-streams/streams-svc-install.html) or [CP4D:3.0](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/cpd/svc/streams/install-intro.html)
 4. [Install Watson Studio service on CP4D](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-ws.html)
 5. [Provision a Streams instance](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/streams/provision.html#provision)
 
