@@ -4,7 +4,7 @@ This sample contains a simple Python application that you can quickly build for 
 
 ## Before you begin
 
-1. Install IBM Cloud Pak for Data (CP4D) [3.5](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/install/install.html)
+1. Install IBM Cloud Pak for Data (CP4D).  For more information, see [CP4D:3.5](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/cpd/install/install.html) or [CP4D:3.0](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/cpd/install/install.html)
     - Gather the following information for use in this scenario
         - **_web client URL_**: This is the URL used to access the IBM Cloud Pak for Data environment in your browser. It should be of the form: https://HOST:PORT (e.g., https://123.45.67.89:12345).
         - **_credentials_**
