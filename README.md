@@ -16,8 +16,8 @@ This sample contains a simple Python application that you can quickly build for 
  
  
 3. Install IBM Streams service on CP4D.  For more information, see [CP4D:3.5](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/svc-streams/streams-svc-install.html) or [CP4D:3.0](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/cpd/svc/streams/install-intro.html)
-4. [Install Watson Studio service on CP4D](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-ws.html)
-5. [Provision a Streams instance](https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/streams/provision.html#provision)
+4. Install Watson Studio service on CP4D. For more information, see [CP4D:3.5](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/wsj/install/install-ws.html) or [CP4D:3.0](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/wsj/install/install-ws.html)
+5. Provision a Streams instance.  For more information, see [CP4D:3.5](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.5.0/svc-streams/provision.html) or [CP4D:3.0](https://www.ibm.com/support/knowledgecenter/SSQNUZ_3.0.1/cpd/svc/streams/provision.html#provision)
 
 6. If IBM Edge Application Manager (EAM) will be used to managed edge application lifecycles
     - [Install IBM Edge Application Manager 4.1](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.1/hub/hub.html)
